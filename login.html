@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">2 PUTRA NET</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li class="li-active"><a href="login.html">HOME</a></li>
+                <li><a href="paket.html">PAKET</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=6285244370271&text=Kak%20Mohon%20Info%20Seputar%20Hotspot%20dong.!">CS : 082112345678</a></li>
+            </ul>
+        </nav>
+        $(if chap-id)
+    <form name="sendin" action="$(link-login-only)" method="post">
+        <input type="hidden" name="username" />
+        <input type="hidden" name="password" />
+        <input type="hidden" name="dst" value="$(link-orig)" />
+        <input type="hidden" name="popup" value="true" />
+    </form>
+
+    <script type="text/javascript" src="md5.js"></script>
+    <script type="text/javascript">
+        function doLogin() {
+            document.sendin.username.value = document.login.username.value;
+            document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value +
+                '$(chap-challenge)');
+            document.sendin.submit();
+            return false;
+        }
+    </script>
+    $(endif)
+        <div class="main" id="main">
+            <div class="header">
+                <img src="img/logo.png" width="350">
+                <p>LAYANAN INTERNET HOTSPOT TERBAIK DIKOTA ANDA</p>
+            </div>
+            <div class="login-form">
+                <h1>| Silahkan Pilih Metode Login Anda |</h1>
+                <div class="box">
+                    <button id="btnvrc" class="btn-top btn-active"  onclick="voucher();">VOUCHER</button>
+                    <button id="btnmem" class="btn-top" onclick="member();">MEMBER</button>
+                </div>
+                <div class="box" id="infologin"></div>
+
+                <form autocomplete="off" name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()"
+                $(endif)>
+                    <input type="hidden" name="dst" value="$(link-orig)" />
+                    <input type="hidden" name="popup" value="true" />
+                    <input class="username" name="username" type="text" value="$(username)" />
+                    <input class="username" name="password" placeholder="Password" type="hidden" />
+                    <button class="log-in" type="submit">AKTIFKAN VOUCHER</button>
+                </form>
+
+                <p>" Selalu perhatikan kode yang anda ketikkan <br>Pastikan sesuai dengan kertas voucher yang anda miliki "</p>
+            </div>
+            $(if trial == 'yes')
+            <div class="box">Coba gratis <a style="text-decoration: underline; color:#fff;" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">klik
+                    di sini</a></div>
+            $(endif)
+
+            $(if error)<div class="notice">$(error)</div>$(endif)
+
+            
+        </div>
+        
+    </div>
+
+    <script type="text/javascript">
+        var hostname = window.location.hostname;
+        document.getElementById('title').innerHTML = hostname  + "> 2 PUTRA NET";
+        
+        document.login.username.focus();
+        
+        var infologin = document.getElementById('infologin');
+        infologin.innerHTML = "Masukkan Kode Voucher Kemudian Klik Login.";
+        
+        // login page 2 mode by Laksamadi Guko
+        var username = document.login.username;
+        var password = document.login.password;
+        
+        username.placeholder = "Kode Voucher";
+        
+        // set password = username
+        function setpass() {
+            var user = username.value
+            //user = user.toLowerCase();
+            username.value = user;
+            password.value = user;
+        }
+        
+        username.onkeyup = setpass;
+        
+        // change to voucher mode
+        function voucher() {
+            username.focus();
+            username.onkeyup = setpass;
+            username.placeholder = "Kode Voucher";
+            password.type = "hidden";
+            infologin.innerHTML = "Masukkan Kode Voucher Kemudian Klik Login.";
+        }
+        
+        // change to member mode
+        function member() {
+            username.focus();
+            username.onkeyup = "";
+            username.placeholder = "Username";
+            password.type = "password";
+            infologin.innerHTML = "Masukkan Username dan Password Kemudian Klik Login.";
+        }
+        </script>
+</body>
+</html>
