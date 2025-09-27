@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="title">2 PUTRA NET</title>
+    <title id="title">2 VOUCHER NET</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
         <nav>
             <ul>
                 <li class="li-active"><a href="login.html">HOME</a></li>
-                <li><a href="paket.html">PAKET</a></li>
+                <li><a href="paket.html">PACKAGE</a></li>
                 <li><a href="faq.html">FAQ</a></li>
                 <li><a href="https://api.whatsapp.com/send?phone=6285244370271&text=Kak%20Mohon%20Info%20Seputar%20Hotspot%20dong.!">CS : 082112345678</a></li>
             </ul>
@@ -39,10 +39,10 @@
         <div class="main" id="main">
             <div class="header">
                 <img src="img/logo.png" width="350">
-                <p>LAYANAN INTERNET HOTSPOT TERBAIK DIKOTA ANDA</p>
+                <p>THE BEST HOTSPOT INTERNET SERVICE</p>
             </div>
             <div class="login-form">
-                <h1>| Silahkan Pilih Metode Login Anda |</h1>
+                <h1>| Please Select Your Login Method |</h1>
                 <div class="box">
                     <button id="btnvrc" class="btn-top btn-active"  onclick="voucher();">VOUCHER</button>
                     <button id="btnmem" class="btn-top" onclick="member();">MEMBER</button>
@@ -55,10 +55,10 @@
                     <input type="hidden" name="popup" value="true" />
                     <input class="username" name="username" type="text" value="$(username)" />
                     <input class="username" name="password" placeholder="Password" type="hidden" />
-                    <button class="log-in" type="submit">AKTIFKAN VOUCHER</button>
+                    <button class="log-in" type="submit">ACTIVATE VOUCHER</button>
                 </form>
 
-                <p>" Selalu perhatikan kode yang anda ketikkan <br>Pastikan sesuai dengan kertas voucher yang anda miliki "</p>
+                <p>" Always pay attention to the code you type <br>Make sure it matches the voucher paper you have."</p>
             </div>
             $(if trial == 'yes')
             <div class="box">Coba gratis <a style="text-decoration: underline; color:#fff;" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">klik
@@ -74,18 +74,18 @@
 
     <script type="text/javascript">
         var hostname = window.location.hostname;
-        document.getElementById('title').innerHTML = hostname  + "> 2 PUTRA NET";
+        document.getElementById('title').innerHTML = hostname  + "> 2 VOUCHER NET";
         
         document.login.username.focus();
         
         var infologin = document.getElementById('infologin');
-        infologin.innerHTML = "Masukkan Kode Voucher Kemudian Klik Login.";
+        infologin.innerHTML = "Enter the voucher code then click Login.";
         
         // login page 2 mode by Laksamadi Guko
         var username = document.login.username;
         var password = document.login.password;
         
-        username.placeholder = "Kode Voucher";
+        username.placeholder = "Voucher Code";
         
         // set password = username
         function setpass() {
@@ -101,9 +101,9 @@
         function voucher() {
             username.focus();
             username.onkeyup = setpass;
-            username.placeholder = "Kode Voucher";
+            username.placeholder = "Voucher Code";
             password.type = "hidden";
-            infologin.innerHTML = "Masukkan Kode Voucher Kemudian Klik Login.";
+            infologin.innerHTML = "Enter the voucher code then click login.";
         }
         
         // change to member mode
@@ -112,7 +112,7 @@
             username.onkeyup = "";
             username.placeholder = "Username";
             password.type = "password";
-            infologin.innerHTML = "Masukkan Username dan Password Kemudian Klik Login.";
+            infologin.innerHTML = "Enter Username and Password then click Login.";
         }
         </script>
 </body>
